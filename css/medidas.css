@@ -1,0 +1,483 @@
+/* configurações gerais e reset
+
+    o seletor universal(*) aplica as regras a abslutamente todos os elementos da pagina
+    -margin/padding:remove as margens e espaçamentos padrao que os navegadores colocam
+    -border-box:garante que a largura(width) e altura(heigth) incluam as bordas e os paddings,evitando que o layout quebre ou fique maior do que o planejado.
+*/
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*delimita o tamanho da pagina web para nao vazar o conteudo*/
+}
+
+body {
+    font-family: Segoe UI, 'Tahoma', Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;/*ajusta a altura da linha do bloco de texto*/
+    font-size: 16px;
+
+}
+
+/* estrutura base da pagina (layout principal) */
+
+/* cabeçalho principal da aplicação */
+header{
+    background-color: #2c3e50;
+    color: whitesmoke;
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px #6f6f6f;/*adiciona sombreamento no elemento do texto*/
+    margin-bottom: 30px;/*afasta o cabeçalho do conteudo que vem de baixo*/
+}
+
+header h1{
+    font-size: 2.5em;/* multiplica o tamanho da fonte que foi pré definida na pagina. Ex: no body definimos o tamanho da fonte em 16px. Neste caso 2.5em vai colocar a fonte do H1 em 40px */
+    margin-bottom: 10px;
+}
+
+header p{
+    font-size: 1.1em;
+    opacity: 0.9;/*torna o texto transparente*/
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*  */
+.section{
+    background-color: #aadb82;
+    box-shadow: 0 2px 4px #6f6f6f;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.section h2{
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px dashed #3498db;
+}
+
+.section h3{
+    color: #34495e;
+    margin-top: 25px;
+    margin: 15px;
+}
+
+/* conceito:medidas absolutas (px) */
+
+/* pixels (px) são unidades absolutas. elas possuem o mesmo tamanho exato independente do tamanho da tela ou das configurações do usuario */
+
+.demo-absolute{
+    display: flex;/*organiza os boxes internos lado a lado*/
+    gap: 20px;/*cria um espaçamento fixo de 20 px entre cada box*/
+    flex-wrap: wrap;/*se a tela for pequena, os boxes que não couberem quebram para a linha seguinte */
+    margin: 20px 0;
+}
+
+.box-absolute-pequeno{
+    align-items: center;/*centraliza o conteudo do box ao centro*/
+    background-color: crimson;
+    border: 2px solid #1eff00;
+    color: whitesmoke;
+    display: flex;/*alinha as medidas mencionadas lado a lado*/
+    font-size: 12px;
+    font-weight: bold;/*negrito*/
+    height: 100px;  
+    justify-content: center;/*centraliza o texto na horizontal e vertical*/
+    width: 100px;
+}
+
+.box-absolute-medio{
+    width: 200px;
+    height: 120px;
+    background-color: #e67e22;
+    align-items: center;
+    color: whitesmoke;
+    border: 2px solid #00eeff;
+    font-size: 12px;
+    justify-content: center;
+    display: flex;
+}
+.box-absolute-grande{
+    width: 300px;
+    height: 150px;
+    background-color: crimson;
+    align-items: center;
+    color: whitesmoke;
+    border: 2px solid #2f00ff;
+    font-size: 12px;
+    justify-content: center;
+    display: flex;
+}
+
+/*conceito:medidas relativas(%)*/
+
+/*
+a porcentagem(%) é relativa ao tamanho do elemento PAI (container).
+se o PAI, o elemento filho (section)
+encolhe proporcionalmente (essencial para design responsivo)
+
+reponsivo:é responsavel por se adquar a diferentes telas, seja ela, a de celular, tablet, notebook, pc, projetores e etc...*/
+
+.demo-relative{
+    background-color:darkred;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.box-relative-25{
+    align-items: center;
+    background-color: rgb(176, 180, 123);
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    width: 25%;
+    height: 80px;
+}
+.box-relative-50{
+    align-items: center;
+    background-color:darkkhaki;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    width: 50%;
+    height: 80px;
+}
+.box-relative-75{
+    align-items: center;
+    background-color:peru;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    width: 76%;
+    height: 80px;
+}
+.box-relative-100{
+    align-items: center;
+    background-color:chocolate;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    width: 100%;
+    height: 80px;
+}
+
+/*
+conceito: margin (espaço externo do box model)
+*/
+
+.demo-margin{
+    background-color: #ffe082;
+    padding: 20px;
+    border: 2px dashed #fbc02d;
+    border-radius: 5px;
+}
+
+/*elementos configurados em inline-block respeitam margens e aceitam largura/altura. ou seja, consigo definir qual o elemento vai ter dentro da pagina.
+
+display:serve para definir que um elemento deve ocupar toda a largura disponivel forçando uma quebra de linha antes e dps dele.
+inline-block:deixar o conteudo lado a lado boqueado para não ter quebra de linha 
+
+*/
+
+.box-margin-small{
+    background-color: #fff9c4;
+    padding: 15px;
+    border: 2px solid #f57f17;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+   
+}
+.box-margin-medium{
+    background-color: darkseagreen;
+    padding: 15px;
+    border: 2px solid #f57f17;
+    margin: 20px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+
+}
+
+.box-margin-large{
+    background-color: rgb(0, 0, 0);
+    padding: 15px;
+    border: 2px solid #f57f17;
+    margin: 20px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;  
+    color: whitesmoke;  
+
+}
+
+/*
+conceito:padding (espaço interno do box model)
+
+
+a propiedade padding cria espaço do lado de dentro do elemento, afastado o conteudo interno (como textos) da borda do propio elemento.
+
+*/
+
+.demo-padding{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /*quando o conteudo n cabe no bloco ele quebra para linha seguinte*/
+    margin: 20px 0;
+}
+
+.box-padding-small{
+    background-color: #81c784;
+    border: 2px solid #388e3c;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.box-padding-medium{
+    background-color: #4caf50;
+    padding: 40px;
+    border: 2px solid #1b5e20;
+    color: white;
+    font-weight: bold;
+
+}
+
+.box-padding-large{
+    background-color: #4caf50;
+    padding: 40px;
+    border: 2px solid;
+    font-weight: bold;
+    color: #ffff;
+    border: 2px solid #f57f17;
+}
+
+/*conceito: margin + padding combinados*/
+
+/*demonstração visual de como o margin (fora) e o padding (dentro) atuam juntos*/
+
+.demo-combined{
+    background-color: #e1bee7;
+    border: 3px dashed #7b1fa7;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 30px;
+}
+
+.box-combined{
+    background-color: #ce93d8;
+    border: 2px solid #6a1b9a;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    margin: 15px;
+    font-weight: bold;
+}
+
+/*conceito: unidades de medida EM e REM*/
+
+/*
+EM- unidade relativa ao tamanho da fonte do elemento do pai direto.
+
+REM- unidade relativa ao tamanho da fonte da raiz do site (tag html,que por padrãoé 16px)
+
+O uso de REM é altamente recomendado para acessibilidade global.
+*/
+
+.demo-em-rem{
+    font-size: 16px;
+    background-color: #f3e5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border: 2px solid #9c27b0;
+}
+
+.box-em{
+    background-color: #f3e5f5;
+    border: 2px solid #9c27b0;
+    color: #4a148c;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 1.5em;/*usa fonte local como ref*/
+    margin: 1em;
+}
+
+.box-rem{
+    background-color: #e1bee7;
+    border-radius: 4px;
+    border: 2px solid #7b1fa2;
+    color: #4a148c;
+    display: inline-block;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem;
+    padding: 1.5rem;/*usa fonte local como ref*/
+}
+
+/*elements de destque,alertas e dicas*/
+
+.highlight{
+    background-color: #ffeaa7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.dica{
+    border-left: 5px solid #2196f3;
+    background-color: #e3f2fd;
+    border-radius: 0 4px 4px 0;
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.atencao{
+    background-color: #fff3e0;
+    border-left: 5px solid #ff9800;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+    transition: 0.4s;
+}
+
+.atencao:hover{
+    translate: 0px -10px;
+}
+
+/*tabelas comparativas*/
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th,td{
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th{
+    background-color: #f2f2f2;
+    color: #2c3e50;
+}
+
+tr:nth-child(even){
+    background-color: #81c784;
+}
+
+/*blocos de codigo exemplo(<pre>)*/
+.code-example{
+    background-color: #2d3748;
+    color: #f7fafc;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*seção 6:grid de cards responsivos*/
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px black;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image{
+    background-color: #bdc3c7;
+    color: #fff;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.card-content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3{
+    margin-top: 0; 
+    margin-bottom: 10px;
+}
+
+.card-content{
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1;
+
+}
+
+.card-button{
+    background-color: #3498db;
+    color: #00eeff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+
+}
+
+.card-button:hover{
+    background-color: magenta;
+}
+
+
+/*Rodapé*/
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+
+}
+
